@@ -1,13 +1,36 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+   font-family: 'Poppins', sans-serif;
+}
+body{
+   background-color: #F5F5F5;
+}
+.rotate{
+   transition: transform 0.25s ease 0s;
+   transform: rotate(180deg);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.flatPic{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/flatPic.png');
 }
+.pgPic{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/pgPic.png');
+}
+.furnished-img{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/furnished.png');
+}
+.readilyAvailable-img{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/readilyAvailable.png');
+}
+.boys-img{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/boys.png');
+}
+.girls-img{
+   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.57) 100%),url('../public/girls.png');
+}
+
+
+
