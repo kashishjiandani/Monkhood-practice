@@ -1,5 +1,5 @@
 import React,{useState}from "react";
-import locationPic from "../img/locationPin.svg";
+import locationPin from "../img/locationPin.png";
 import playstore from "../img/playstore.svg";
 import appstore from "../img/appstore.svg";
 import search from "../img/search.svg";
@@ -16,6 +16,7 @@ import property1 from "../img/property1.png";
 import property2 from "../img/property2.png";
 import property3 from "../img/property3.png";
 import arrow from "../img/arrow.png";
+import rightArrow from "../img/rightArrow.png";
 import HeroCards from "../components/HeroCards";
 import ServicesCards from "../components/ServicesCards";
 import CollectCards from "../components/CollectCards";
@@ -79,11 +80,11 @@ function Flats() {
             </button>
             
           </div>
-          <div className="search-bar flex flex-row px-2 py-3 w-72 mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
+          <div className="search-bar flex flex-row px-2 py-3 w-[400px] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
-              <img src={locationPic} className="pt-1 pl-2 " alt="locationPic" />
+              <img src={locationPin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
-            <span className="text-m px-2 font-normal">Delhi</span>
+            <span className="text-m px-3 font-normal">Delhi</span>
             <span>
               <img
                 src={search}
@@ -93,7 +94,7 @@ function Flats() {
             </span>
             <input
               type="text"
-              className=" text-m bg-[transparent] placeholder-white font-normal"
+              className=" text-m bg-[transparent] placeholder-white font-normal w-auto"
               placeholder="Search by college"
             />
           </div>
@@ -124,8 +125,8 @@ function Flats() {
             <ServicesCards service={"Online Listing"} bg={"bg-services1"}/>
         </div>
         {/* ------------------------------------------------------------------------------------- */}
-        <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6">
-          View All 🡢
+        <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6 flex items-center ">
+          View All <img src={rightArrow} className="ml-1" alt="arrow" />
         </button>
       </div>
       {/* END OF SERVICES SECTION */}
@@ -205,7 +206,7 @@ function Flats() {
 
       {/* WHAT THEY SAY SECTION */}
       <div className="main flex mx-10">
-        <div className="part1  flex flex-col items-start justify-start w-[40%] h-auto mr-4">
+        <div className=" flex flex-col items-start justify-start w-[40%] h-auto mr-4">
           <p className="text-lg font-medium mb-5">What they say</p>
           <p className="text-sm font-normal text-lightGrey">
             Whether you're looking for a new home or just want to make a little
@@ -222,11 +223,11 @@ function Flats() {
               </p>
             </div>
           </div>
-          <button className="text-base font-normal rounded-lg border px-2 py-1 border-btnYellow text-btnYellow mt-6">
-            Read More 🡢
+          <button className="text-base font-normal rounded-lg border px-2 py-1 border-btnYellow text-btnYellow mt-6 flex items-center">
+            Read More <img src={rightArrow} className="ml-1" alt="arrow" />
           </button>
         </div>
-        <div className="part2 w-[60%]  flex flex-col">
+        <div className="relative w-[60%] flex flex-col">
           <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl drop-shadow-xl bg-boxWhite px-4 py-2 mb-2">
             <div className="user-outer flex space-x-14">
               <div className="username">
@@ -246,14 +247,15 @@ function Flats() {
                 <img src={user} className="ml-[-8px]" alt="user" />
               </div>
             </div>
-            <p className="text-lm mt-3 text-lightGrey font-normal">
+            <p className="text-lm mt-3 text-lightGrey font-normal italic">
               Monkhood living has been helpful in finding me the house I wanted.
               The owner is sweet. I got pretty much all the facilities under my
               budget. I will suggest to every student.
             </p>
           </div>
           {/* ------------------------------------------------------------------------------------ */}
-          <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl drop-shadow-xl bg-boxWhite px-4 py-2 mb-2">
+          <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl box-shadow-md bg-boxWhite px-4 py-2 mb-2">
+            <div className='absolute w-[224px] h-[150px] rounded-[10px] mt-[60px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]'></div>
             <div className="user-outer flex space-x-14">
               <div className="username">
                 <p className="text-base text-darkGrey font-medium py-0">
@@ -272,7 +274,7 @@ function Flats() {
                 <img src={user} className="ml-[-8px]" alt="user" />
               </div>
             </div>
-            <p className="text-lm mt-3 text-lightGrey font-normal">
+            <p className="text-lm mt-3 text-lightGrey font-normal italic">
               Monkhood living has been helpful in finding me the house I wanted.
               The owner is sweet. I got pretty much all the facilities under my
               budget. I will suggest to every student.
@@ -283,6 +285,7 @@ function Flats() {
       {/* END OF WHAT THEY SAY SECTION */}
 
       {/* POST PROPERTY SECTION */}
+      <div className="flex justify-center items-center">
       <div className=" bg-siteGrey h-28 w-80 mx-10 my-20 rounded-lg flex justify-center items-center ">
         <div className="w-[30%]">
           <img src={property1} alt="property1" className="ml-5 mb-2"/>
@@ -300,17 +303,18 @@ function Flats() {
           </button>
         </div>
       </div>
+      </div>
       {/* END OF POST PROPERTY SECTION */}
 
       {/* FAQ SECTION */}
-      <div className="flex flex-col items-center justify-center mt-8">
+      <div className="flex flex-col items-center justify-center">
         <p className="text-smm font-medium">FAQs</p>
         <p className="text-sm font-normal text-lightGrey">
         Do you have questions? It’s probably been answered
         </p>
       </div>
       {/* ------------------------------------------------------------------------------- */}
-      <div>
+      <div className="flex flex-col items-center justify-center">
         <Accordion number={"01."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
         <Accordion number={"02."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
         <Accordion number={"03."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
@@ -342,11 +346,11 @@ function Flats() {
                 <div className="flex justify-between w-[90px]">
                     <div className="flex">
                     <img src={blackPin} alt="" />
-                    <p className="text-ss text-lightGrey">Rohini</p>
+                    <p className="text-ss text-lightGrey pl-1">Rohini</p>
                     </div>
                     <div className="flex items-end justify-center">
                     <img src={star} alt="" />
-                    <p className="text-ss text-lightGrey font-normal">4.3</p>
+                    <p className="text-ss text-lightGrey font-normal pl-1">4.3</p>
                     </div>
 
                 </div>
