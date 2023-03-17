@@ -80,11 +80,11 @@ function Flats() {
             </button>
             
           </div>
-          <div className="search-bar flex flex-row px-2 py-3 w-[400px] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
+          <div className="search-bar flex flex-row px-2 py-3 w-72 mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
               <img src={locationPin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
-            <span className="text-m px-3 font-normal">Delhi</span>
+            <span className="text-m px-2 font-normal">Delhi</span>
             <span>
               <img
                 src={search}
@@ -94,7 +94,7 @@ function Flats() {
             </span>
             <input
               type="text"
-              className=" text-m bg-[transparent] placeholder-white font-normal w-auto"
+              className=" text-m bg-[transparent] placeholder-white font-normal"
               placeholder="Search by college"
             />
           </div>
@@ -125,8 +125,8 @@ function Flats() {
             <ServicesCards service={"Online Listing"} bg={"bg-services1"}/>
         </div>
         {/* ------------------------------------------------------------------------------------- */}
-        <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6 flex items-center ">
-          View All <img src={rightArrow} className="ml-1" alt="arrow" />
+        <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6 flex items-center">
+          View All <img src={rightArrow} className="ml-2" alt="arrow" />
         </button>
       </div>
       {/* END OF SERVICES SECTION */}
@@ -224,7 +224,7 @@ function Flats() {
             </div>
           </div>
           <button className="text-base font-normal rounded-lg border px-2 py-1 border-btnYellow text-btnYellow mt-6 flex items-center">
-            Read More <img src={rightArrow} className="ml-1" alt="arrow" />
+            Read More<img src={rightArrow} className="ml-2" alt="arrow" />
           </button>
         </div>
         <div className="relative w-[60%] flex flex-col">
@@ -255,7 +255,7 @@ function Flats() {
           </div>
           {/* ------------------------------------------------------------------------------------ */}
           <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl box-shadow-md bg-boxWhite px-4 py-2 mb-2">
-            <div className='absolute w-[224px] h-[150px] rounded-[10px] mt-[60px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]'></div>
+            <div className='absolute w-[165px] h-[150px] rounded-[10px] mt-[0px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]'></div>
             <div className="user-outer flex space-x-14">
               <div className="username">
                 <p className="text-base text-darkGrey font-medium py-0">
@@ -274,7 +274,7 @@ function Flats() {
                 <img src={user} className="ml-[-8px]" alt="user" />
               </div>
             </div>
-            <p className="text-lm mt-3 text-lightGrey font-normal italic">
+            <p className="text-lm mt-3 text-lightGrey font-normal">
               Monkhood living has been helpful in finding me the house I wanted.
               The owner is sweet. I got pretty much all the facilities under my
               budget. I will suggest to every student.
@@ -286,7 +286,7 @@ function Flats() {
 
       {/* POST PROPERTY SECTION */}
       <div className="flex justify-center items-center">
-      <div className=" bg-siteGrey h-28 w-80 mx-10 my-20 rounded-lg flex justify-center items-center ">
+      <div className=" bg-siteGrey h-28 w-[100%] mx-8 my-20 rounded-lg flex justify-center items-center ">
         <div className="w-[30%]">
           <img src={property1} alt="property1" className="ml-5 mb-2"/>
           <img src={property2} alt="property2" className="ml-2.5" />
@@ -346,11 +346,11 @@ function Flats() {
                 <div className="flex justify-between w-[90px]">
                     <div className="flex">
                     <img src={blackPin} alt="" />
-                    <p className="text-ss text-lightGrey pl-1">Rohini</p>
+                    <p className="text-ss text-lightGrey">Rohini</p>
                     </div>
                     <div className="flex items-end justify-center">
                     <img src={star} alt="" />
-                    <p className="text-ss text-lightGrey font-normal pl-1">4.3</p>
+                    <p className="text-ss text-lightGrey font-normal">4.3</p>
                     </div>
 
                 </div>
