@@ -1,13 +1,13 @@
 import './App.css';
-import Flats from './pages/Flats';
-// import flatPic from "../src/img/flatPic.png"
+import HomePage from './pages/HomePage';
+
+
 
 function App() {
   return (
-  <Flats/>
+  <HomePage/>
   );
 }
 
 export default App;
 
-// bg-[url('../public/flatPic.png')]

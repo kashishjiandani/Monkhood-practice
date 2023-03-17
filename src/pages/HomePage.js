@@ -1,4 +1,4 @@
-import React,{useState}from "react";
+import React, { useState } from "react";
 import locationPin from "../img/locationPin.png";
 import playstore from "../img/playstore.svg";
 import appstore from "../img/appstore.svg";
@@ -21,43 +21,59 @@ import HeroCards from "../components/HeroCards";
 import ServicesCards from "../components/ServicesCards";
 import CollectCards from "../components/CollectCards";
 
-function Accordion({number,question,answer}){
-    const [show, setShow] = useState(false)
-    const handleArrow=(e)=>{
-        setShow(!show)
-        e.currentTarget.classList.toggle('rotate');
-    }
-return(
+function Accordion({ number, question, answer }) {
+  const [show, setShow] = useState(false);
+  const handleArrow = (e) => {
+    setShow(!show);
+    e.currentTarget.classList.toggle("rotate");
+  };
+  return (
     <>
-    <div className="h-auto w-80 mx-10 my-3 rounded-xl border border-faqGrey flex flex-col items-center justify-evenly ">
-            <div className="flex items-center justify-evenly w-full py-3">
-            <p className="text-m text-black">{number}</p>
-            <p className="text-m text-black">{question}</p>
-            <img src={arrow} alt="arrow" className="cursor-pointer" onClick={handleArrow} />
-            </div>
-            {show && <p className="text-m text-black px-5 pb-4 text-justify">{answer}</p>}
+      <div className="h-auto w-80 mx-10 my-3 rounded-xl border border-faqGrey flex flex-col items-center justify-evenly ">
+        <div className="flex items-center justify-evenly w-full py-3">
+          <p className="text-m text-black">{number}</p>
+          <p className="text-m text-black">{question}</p>
+          <img
+            src={arrow}
+            alt="arrow"
+            className="cursor-pointer"
+            onClick={handleArrow}
+          />
         </div>
-</>
-)
+        {show && (
+          <p className="text-m text-black px-5 pb-4 text-justify">{answer}</p>
+        )}
+      </div>
+    </>
+  );
 }
 
+function HomePage() {
+  const [pgClick, setpgClick] = useState(false);
+  const [flatClick, setflatClick] = useState(true);
+  const handlePgClick = () => {
+    setpgClick(true);
+    setflatClick(false);
+  };
+  const handleFlatClick = () => {
+    setflatClick(true);
+    setpgClick(false);
+  };
 
-function Flats() {
-    const [pgClick, setpgClick] = useState(false)
-    const [flatClick, setflatClick] = useState(true)
-    const handlePgClick=()=>{
-       setpgClick(true)
-       setflatClick(false)
+  const handleChange = (event) => {
+    if (!event.nativeEvent.inputType) {
+      event.target.blur();
     }
-    const handleFlatClick=()=>{
-        setflatClick(true)
-        setpgClick(false)
-    }
-    
+  };
+
+  const clear = (event) => {
+    event.target.value = "";
+  };
+
   return (
     <>
       {/* HERO-SECTION */}
-      <div class={`${flatClick?'flatPic':'pgPic'} h-56 w-full`}>
+      <div class={`${flatClick ? "flatPic" : "pgPic"} h-56 w-full`}>
         <div className="nav flex justify-between text-white">
           <button className="text-neutral-50 mt-4 ml-6 ">☰</button>
           <button className="text-neutral-50 text-sm font-medium px-2 py-0 mt-4 mr-6 rounded-2xl backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20">
@@ -72,13 +88,26 @@ function Flats() {
             </p>
           </div>
           <div>
-            <button className={`text-l rounded px-4 py-0.5 mr-1.5 border-2 border-btnYellow ${flatClick?'bg-btnYellow':'backdrop-blur-sm  bg-gray-300 shadow-lg bg-opacity-20'}`} onClick={handleFlatClick}>
+            <button
+              className={`text-l rounded px-4 py-0.5 mr-1.5 border-2 border-btnYellow ${
+                flatClick
+                  ? "bg-btnYellow"
+                  : "backdrop-blur-sm  bg-gray-300 shadow-lg bg-opacity-20"
+              }`}
+              onClick={handleFlatClick}
+            >
               Flats
             </button>
-            <button className={`text-l rounded px-4 py-0.5 mr-1.5 border-2 border-btnYellow ${pgClick?'bg-btnYellow':'backdrop-blur-sm  bg-gray-300 shadow-lg bg-opacity-20'}`} onClick={handlePgClick}>
+            <button
+              className={`text-l rounded px-4 py-0.5 mr-1.5 border-2 border-btnYellow ${
+                pgClick
+                  ? "bg-btnYellow"
+                  : "backdrop-blur-sm  bg-gray-300 shadow-lg bg-opacity-20"
+              }`}
+              onClick={handlePgClick}
+            >
               PG Homes
             </button>
-            
           </div>
           <div className="search-bar flex flex-row px-2 py-3 w-72 mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
@@ -93,17 +122,42 @@ function Flats() {
               />
             </span>
             <input
+              list="collegeList"
               type="text"
-              className=" text-m bg-[transparent] placeholder-white font-normal w-auto"
+              className=" text-m bg-[transparent] placeholder-white font-normal w-auto "
               placeholder="Search by college"
+              onChange={handleChange}
+              onClick={clear}
+              onFocus={clear}
             />
+            <datalist id="collegeList">
+              <option>Select for your college..</option>
+              <option value="Bhagwan Parshuram Institute of Technology (BPIT)">
+                Bhagwan Parshuram Institute of Technology (BPIT)
+              </option>
+              <option value="Delhi Technological University (DTU)">
+                Delhi Technological University (DTU)
+              </option>
+              <option value="Dr. B R Ambedkar University Delhi (AUD)">
+                Dr. B R Ambedkar University Delhi (AUD)
+              </option>
+              <option value="Guru Gobind Singh Indraprastha University (GGSIPU)">
+                Guru Gobind Singh Indraprastha University (GGSIPU)
+              </option>
+              <option value="Indian Institue of Technology-Delhi (IIT-D)">
+                Indian Institue of Technology-Delhi (IIT-D)
+              </option>
+              <option value="Netaji Subash University of Technology (NSUT)">
+                Netaji Subash University of Technology (NSUT)
+              </option>
+            </datalist>
           </div>
         </div>
       </div>
       {/* END OF HERO SECTION */}
 
       {/* CARDS SECTION */}
-        <HeroCards/>
+      <HeroCards />
       {/* END OF CARDS SECTION */}
 
       {/* SERVICES SECTION */}
@@ -114,15 +168,15 @@ function Flats() {
         </p>
         {/* --------------------------------------------------------------------------------- */}
         <div className="flex w-auto justify-center items-center space-x-6 mt-6">
-            <ServicesCards service={"Flats"} bg={"bg-services2"}/>
-            <ServicesCards service={"PG Homes"} bg={"bg-services1"}/>
-            <ServicesCards service={"Furnishing"} bg={"bg-services2"}/>
+          <ServicesCards service={"Flats"} bg={"bg-services2"} />
+          <ServicesCards service={"PG Homes"} bg={"bg-services1"} />
+          <ServicesCards service={"Furnishing"} bg={"bg-services2"} />
         </div>
         {/* ------------------------------------------------------------------------------- */}
         <div className="flex w-auto justify-center items-center space-x-6 mt-6">
-            <ServicesCards service={"Cleaning"} bg={"bg-services1"}/>
-            <ServicesCards service={"Kitchen Aid"} bg={"bg-services2"}/>
-            <ServicesCards service={"Online Listing"} bg={"bg-services1"}/>
+          <ServicesCards service={"Cleaning"} bg={"bg-services1"} />
+          <ServicesCards service={"Kitchen Aid"} bg={"bg-services2"} />
+          <ServicesCards service={"Online Listing"} bg={"bg-services1"} />
         </div>
         {/* ------------------------------------------------------------------------------------- */}
         <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6 flex items-center">
@@ -142,7 +196,9 @@ function Flats() {
       <div className="h-auto w-auto flex items-center justify-center space-x-8 px-8">
         <div className=" h-[50%] w-[50%] flex flex-col items-center justify-center my-8">
           <img src={working} alt="" />
-          <p className="text-l text-center font-medium mt-3 mb-2">No brokerage fees</p>
+          <p className="text-l text-center font-medium mt-3 mb-2">
+            No brokerage fees
+          </p>
           <p className="text-sm text-center font-normal text-lightGrey">
             Save time and money without the interference of middleman and
             transparent pricing
@@ -173,7 +229,9 @@ function Flats() {
         </div>
         <div className="h-[50%] w-[50%] flex flex-col items-center justify-center">
           <img src={working} alt="" />
-          <p className="text-l text-center font-medium mt-3 mb-2">No brokerage fees</p>
+          <p className="text-l text-center font-medium mt-3 mb-2">
+            No brokerage fees
+          </p>
           <p className="text-sm text-center font-normal text-lightGrey">
             Save time and money without the interference of middleman and
             transparent pricing
@@ -192,14 +250,21 @@ function Flats() {
           </p>
         </div>
         {/* ------------------------------------------------------------------------------------- */}
-        {flatClick && <div className="flex w-auto justify-center items-center space-x-6 mt-6">
-          <CollectCards title={"Furnished"} img={"furnished-img"}/>
-          <CollectCards title={"Readily Available"} img={"readilyAvailable-img"}/>
-        </div>}
-        {pgClick && <div className="flex w-auto justify-center items-center space-x-6 mt-6">
-          <CollectCards title={"For Boys"} img={"boys-img"}/>
-          <CollectCards title={"For Girls"} img={"girls-img"}/>
-        </div>}
+        {flatClick && (
+          <div className="flex w-auto justify-center items-center space-x-6 mt-6">
+            <CollectCards title={"Furnished"} img={"furnished-img"} />
+            <CollectCards
+              title={"Readily Available"}
+              img={"readilyAvailable-img"}
+            />
+          </div>
+        )}
+        {pgClick && (
+          <div className="flex w-auto justify-center items-center space-x-6 mt-6">
+            <CollectCards title={"For Boys"} img={"boys-img"} />
+            <CollectCards title={"For Girls"} img={"girls-img"} />
+          </div>
+        )}
         {/* ------------------------------------------------------------------------------------------- */}
       </div>
       {/* END OF COLLECTION SECTION */}
@@ -224,7 +289,8 @@ function Flats() {
             </div>
           </div>
           <button className="text-base font-normal rounded-lg border px-2 py-1 border-btnYellow text-btnYellow mt-6 flex items-center">
-            Read More<img src={rightArrow} className="ml-2" alt="arrow" />
+            Read More
+            <img src={rightArrow} className="ml-2" alt="arrow" />
           </button>
         </div>
         <div className="relative w-[60%] flex flex-col">
@@ -255,7 +321,7 @@ function Flats() {
           </div>
           {/* ------------------------------------------------------------------------------------ */}
           <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl box-shadow-md bg-boxWhite px-4 py-2 mb-2">
-            <div className='absolute w-[165px] h-[150px] rounded-[10px] mt-[0px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]'></div>
+            <div className="absolute w-[165px] h-[150px] rounded-[10px] mt-[0px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]"></div>
             <div className="user-outer flex space-x-14">
               <div className="username">
                 <p className="text-base text-darkGrey font-medium py-0">
@@ -286,23 +352,23 @@ function Flats() {
 
       {/* POST PROPERTY SECTION */}
       <div className="flex justify-center items-center">
-      <div className=" bg-siteGrey h-28 w-[100%] mx-8 my-20 rounded-lg flex justify-center items-center ">
-        <div className="w-[30%]">
-          <img src={property1} alt="property1" className="ml-5 mb-2"/>
-          <img src={property2} alt="property2" className="ml-2.5" />
+        <div className=" bg-siteGrey h-28 w-[100%] mx-8 my-20 rounded-lg flex justify-center items-center ">
+          <div className="w-[30%]">
+            <img src={property1} alt="property1" className="ml-5 mb-2" />
+            <img src={property2} alt="property2" className="ml-2.5" />
+          </div>
+          <div className="w-[25%] ml-2">
+            <img src={property3} alt="property3" />
+          </div>
+          <div className=" w-[50%] flex justify-start items-start flex-col">
+            <p className="text-m  text-white text-left font-medium mb-4">
+              Looking to sell or rent your property?
+            </p>
+            <button className="text-lm rounded px-4 py-2 mr-1.5 border border-btnYellow bg-transparent text-btnYellow">
+              Post Property for FREE
+            </button>
+          </div>
         </div>
-        <div className="w-[25%] ml-2">
-          <img src={property3} alt="property3" />
-        </div>
-        <div className=" w-[50%] flex justify-start items-start flex-col">
-          <p className="text-m  text-white text-left font-medium mb-4">
-            Looking to sell or rent your property?
-          </p>
-          <button className="text-lm rounded px-4 py-2 mr-1.5 border border-btnYellow bg-transparent text-btnYellow">
-            Post Property for FREE
-          </button>
-        </div>
-      </div>
       </div>
       {/* END OF POST PROPERTY SECTION */}
 
@@ -310,64 +376,85 @@ function Flats() {
       <div className="flex flex-col items-center justify-center">
         <p className="text-smm font-medium">FAQs</p>
         <p className="text-sm font-normal text-lightGrey">
-        Do you have questions? It’s probably been answered
+          Do you have questions? It’s probably been answered
         </p>
       </div>
       {/* ------------------------------------------------------------------------------- */}
       <div className="flex flex-col items-center justify-center">
-        <Accordion number={"01."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
-        <Accordion number={"02."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
-        <Accordion number={"03."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
-        <Accordion number={"04."} question={"Do you list houses in other cities?"} answer={"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."}/>
+        <Accordion
+          number={"01."}
+          question={"Do you list houses in other cities?"}
+          answer={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+        <Accordion
+          number={"02."}
+          question={"Do you list houses in other cities?"}
+          answer={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+        <Accordion
+          number={"03."}
+          question={"Do you list houses in other cities?"}
+          answer={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
+        <Accordion
+          number={"04."}
+          question={"Do you list houses in other cities?"}
+          answer={
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          }
+        />
       </div>
 
       {/* END OF FAQ SECTION */}
 
       {/* IPHONE SECTION */}
       <div className="flex justify-center items-center">
-
         <div className="bg-iphone h-[280px] w-[240px] relative">
-        <div className="bg-iphoneContent h-[230px] w-[108px] top-[35px] left-[67px] absolute"></div>
+          <div className="bg-iphoneContent h-[230px] w-[108px] top-[35px] left-[67px] absolute"></div>
         </div>
 
         <div className="bg-white drop-shadow-xl h-[113px] w-[107px] rounded-lg absolute ml-40 mt-28 flex flex-col items-center justify-start">
-            <div className="bg-innercard h-[72px] w-[93px] mt-2 flex justify-end relative">
-                <div className="backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20 h-4 w-4 rounded-full mt-1 mr-1 flex justify-center items-center " >
-                    <img src={yellowHeart} alt="" />
-                </div>
-                <div className="backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20 h-4 w-auto px-1 rounded-full bottom-1 left-1 absolute flex justify-center items-center " >
-                    <p className="text-ss text-white">₹5000/month</p>
-                </div>
-            </div> 
-            <div className="w-full ml-4 mt-1">
-                <div className="flex flex-col">
-                    <p className="text-lm text-black">Devta Homes</p> 
-                </div>
-                <div className="flex justify-between w-[90px]">
-                    <div className="flex">
-                    <img src={blackPin} alt="" />
-                    <p className="text-ss text-lightGrey">Rohini</p>
-                    </div>
-                    <div className="flex items-end justify-center">
-                    <img src={star} alt="" />
-                    <p className="text-ss text-lightGrey font-normal">4.3</p>
-                    </div>
-
-                </div>
-
+          <div className="bg-innercard h-[72px] w-[93px] mt-2 flex justify-end relative">
+            <div className="backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20 h-4 w-4 rounded-full mt-1 mr-1 flex justify-center items-center ">
+              <img src={yellowHeart} alt="" />
             </div>
+            <div className="backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20 h-4 w-auto px-1 rounded-full bottom-1 left-1 absolute flex justify-center items-center ">
+              <p className="text-ss text-white">₹5000/month</p>
+            </div>
+          </div>
+          <div className="w-full ml-4 mt-1">
+            <div className="flex flex-col">
+              <p className="text-lm text-black">Devta Homes</p>
+            </div>
+            <div className="flex justify-between w-[90px]">
+              <div className="flex">
+                <img src={blackPin} alt="" />
+                <p className="text-ss text-lightGrey">Rohini</p>
+              </div>
+              <div className="flex items-end justify-center">
+                <img src={star} alt="" />
+                <p className="text-ss text-lightGrey font-normal">4.3</p>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
       {/* -------------------------------------------------------------------------------------------------------- */}
       <div className="flex flex-col items-center justify-center mt-8">
         <p className="text-smm font-medium">Download our mobile app</p>
         <p className="text-sm font-normal px-16 text-center text-lightGrey">
-        Visit your google play store and download our mobile app to keep searching for your perfect home.
+          Visit your google play store and download our mobile app to keep
+          searching for your perfect home.
         </p>
         <div className="flex mt-2 ">
-            <img src={playstore} className="px-2" alt="" />
-            <img src={appstore} alt="" />
+          <img src={playstore} className="px-2" alt="" />
+          <img src={appstore} alt="" />
         </div>
       </div>
       {/* END OF IPHONE SECTION */}
@@ -375,20 +462,20 @@ function Flats() {
       {/* BOTTOM NAVBAR SECTION */}
       <div className="bg-white drop-shadow-2xl flex justify-evenly items-center justify-center h-16 w-full mt-5 rounded-t-lg">
         <div className="flex flex-col justify-center items-center">
-        <img src={home} className="h-[32px] w-[26px]" alt="home" />
-        <p className="text-base text-btnYellow ">Home</p>
+          <img src={home} className="h-[32px] w-[26px]" alt="home" />
+          <p className="text-base text-btnYellow ">Home</p>
         </div>
         <div className="flex flex-col justify-center items-center">
-        <img src={heart} className="h-[32px] w-[26px]" alt="home" />
-        <p className="text-base text-textGrey ">Saved</p>
+          <img src={heart} className="h-[32px] w-[26px]" alt="home" />
+          <p className="text-base text-textGrey ">Saved</p>
         </div>
         <div className="flex flex-col justify-center items-center">
-        <img src={message} className="h-[32px] w-[26px]" alt="home" />
-        <p className="text-base text-textGrey ">Inbox</p>
+          <img src={message} className="h-[32px] w-[26px]" alt="home" />
+          <p className="text-base text-textGrey ">Inbox</p>
         </div>
         <div className="flex flex-col justify-center items-center">
-        <img src={profile} className="h-[32px] w-[26px]" alt="home" />
-        <p className="text-base text-textGrey ">Profile</p>
+          <img src={profile} className="h-[32px] w-[26px]" alt="home" />
+          <p className="text-base text-textGrey ">Profile</p>
         </div>
       </div>
       {/* END OF BOTTOM NAVBAR SECTION */}
@@ -396,4 +483,4 @@ function Flats() {
   );
 }
 
-export default Flats;
+export default HomePage;
