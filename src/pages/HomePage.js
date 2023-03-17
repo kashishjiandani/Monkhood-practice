@@ -20,6 +20,8 @@ import rightArrow from "../img/rightArrow.png";
 import HeroCards from "../components/HeroCards";
 import ServicesCards from "../components/ServicesCards";
 import CollectCards from "../components/CollectCards";
+import Properties from "../components/Properties";
+
 
 function Accordion({ number, question, answer }) {
   const [show, setShow] = useState(false);
@@ -179,11 +181,15 @@ function HomePage() {
           <ServicesCards service={"Online Listing"} bg={"bg-services1"} />
         </div>
         {/* ------------------------------------------------------------------------------------- */}
-        <button className="text-base font-normal rounded-lg border px-4 py-2 border-btnYellow text-btnYellow mt-6 flex items-center">
+        <button className="text-base font-normal rounded-lg border px-3 py-1 border-btnYellow text-btnYellow mt-6 flex items-center">
           View All <img src={rightArrow} className="ml-2" alt="arrow" />
         </button>
       </div>
       {/* END OF SERVICES SECTION */}
+
+      {/* PROPERTIES SECTION */}
+      <Properties />
+      {/* END OF PROPERTIES SECTION */}
 
       {/* BOOK SECTION */}
       <div className="flex flex-col items-center justify-center mt-8 mb-4">
@@ -321,7 +327,7 @@ function HomePage() {
           </div>
           {/* ------------------------------------------------------------------------------------ */}
           <div class="w-auto h-auto flex flex-col items-start justify-center border border-gray-300 rounded-xl box-shadow-md bg-boxWhite px-4 py-2 mb-2">
-            <div className="absolute w-[165px] h-[150px] rounded-[10px] mt-[0px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]"></div>
+            <div className="absolute w-[170px] h-[150px] rounded-[10px] mt-[0px] ml-[-17px] bg-gradient-to-b from-transparent to-[#f5f5f5]"></div>
             <div className="user-outer flex space-x-14">
               <div className="username">
                 <p className="text-base text-darkGrey font-medium py-0">
@@ -418,9 +424,8 @@ function HomePage() {
         <div className="bg-iphone h-[280px] w-[240px] relative">
           <div className="bg-iphoneContent h-[230px] w-[108px] top-[35px] left-[67px] absolute"></div>
         </div>
-
-        <div className="bg-white drop-shadow-xl h-[113px] w-[107px] rounded-lg absolute ml-40 mt-28 flex flex-col items-center justify-start">
-          <div className="bg-innercard h-[72px] w-[93px] mt-2 flex justify-end relative">
+        <div className="bg-white drop-shadow-xl h-[113px] w-[107px] rounded-lg flex flex-col items-center justify-start absolute ml-40 mt-28">
+          <div className="bg-innercard1 h-[72px] w-[93px] mt-2 flex justify-end relative">
             <div className="backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20 h-4 w-4 rounded-full mt-1 mr-1 flex justify-center items-center ">
               <img src={yellowHeart} alt="" />
             </div>
@@ -446,7 +451,7 @@ function HomePage() {
         </div>
       </div>
       {/* -------------------------------------------------------------------------------------------------------- */}
-      <div className="flex flex-col items-center justify-center mt-8">
+      <div className="flex flex-col items-center justify-center mt-8 mb-20">
         <p className="text-smm font-medium">Download our mobile app</p>
         <p className="text-sm font-normal px-16 text-center text-lightGrey">
           Visit your google play store and download our mobile app to keep
@@ -460,7 +465,7 @@ function HomePage() {
       {/* END OF IPHONE SECTION */}
 
       {/* BOTTOM NAVBAR SECTION */}
-      <div className="bg-white drop-shadow-2xl flex justify-evenly items-center justify-center h-16 w-full mt-5 rounded-t-lg">
+      <div className="bg-white drop-shadow-2xl flex justify-evenly items-center bottom-0 fixed h-16 w-full mt-5 rounded-t-lg">
         <div className="flex flex-col justify-center items-center">
           <img src={home} className="h-[32px] w-[26px]" alt="home" />
           <p className="text-base text-btnYellow ">Home</p>

@@ -37,7 +37,10 @@ module.exports = {
         'working': "url('/src/img/working.png')",
         'iphone': "url('/src/img/iphone.png')",
         'iphoneContent': "url('/src/img/iphoneContent.svg')",
-        'innercard': "url('/src/img/innercard.svg')",
+        'innercard1': "url('/src/img/innercard1.svg')",
+        'innercard2': "url('/src/img/innercard2.svg')",
+        'innercardBig1': "url('/src/img/innercardBig1.png')",
+        'innercardBig2': "url('/src/img/innercardBig2.png')",
       }
       
     },
