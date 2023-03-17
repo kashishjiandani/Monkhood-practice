@@ -84,7 +84,7 @@ function Flats() {
             <span>
               <img src={locationPin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
-            <span className="text-m px-2 font-normal">Delhi</span>
+            <span className="text-m px-3 font-normal">Delhi</span>
             <span>
               <img
                 src={search}
@@ -94,7 +94,7 @@ function Flats() {
             </span>
             <input
               type="text"
-              className=" text-m bg-[transparent] placeholder-white font-normal"
+              className=" text-m bg-[transparent] placeholder-white font-normal w-auto"
               placeholder="Search by college"
             />
           </div>
