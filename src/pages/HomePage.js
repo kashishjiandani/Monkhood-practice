@@ -6,10 +6,11 @@ import ServicesCards from "../components/ServicesCards";
 import CollectCards from "../components/CollectCards";
 import Properties from "../components/Properties";
 
-import locationPin from "../img/locationPin.png";
+
 import playstore from "../img/playstore.svg";
+import pin from "../img/pin.png";
+import search from "../img/search.png";
 import appstore from "../img/appstore.svg";
-import search from "../img/search.svg";
 import profile from "../img/profile.svg";
 import message from "../img/message.svg";
 import heart from "../img/heart.svg";
@@ -148,15 +149,15 @@ useEffect(() => {
               PG Homes
             </button>
           </div>
-          <div className="search-bar flex flex-row px-2 py-3 w-[90%] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
+          <div className="search-bar flex flex-row px-2 py-3 w-[350px] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
-              <img src={locationPin} className="pt-1 pl-2 " alt="locationPic" />
+              <img src={pin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
-            <span className="text-m px-3 font-normal">Delhi</span>
+            <span className="text-m px-3 font-normal  border-gray-50 border-r">Delhi</span>
             <span>
               <img
                 src={search}
-                className="pt-0.5 px-2  border-gray-50 border-l"
+                className="pt-0.5 px-2 "
                 alt="search"
               />
             </span>
