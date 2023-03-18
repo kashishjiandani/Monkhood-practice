@@ -1,6 +1,6 @@
 import React from 'react'
 import innercard1 from "../img/innercard1.svg";
-import innercard2 from "../img/innercard2.svg";
+// import innercard2 from "../img/innercard2.svg";
 import blackPin from "../img/blackPin.svg";
 import bedroom from "../img/bedroom.svg";
 import star from "../img/star.png";
