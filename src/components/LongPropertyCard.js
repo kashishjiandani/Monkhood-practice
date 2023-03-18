@@ -19,7 +19,8 @@ function LongPropertyCard() {
               <p className="text-smm text-black">Devta Homes</p>
               </div>
               <div className="flex items-center justify-center">
-              <p className="text-smm text-black">₹5000/month</p>
+              <p className="text-smm text-black">₹5000</p>
+              <p className="text-smm text-gray-600">/month</p>
               </div>
             </div>
             {/* ---------------------------------------------------------------------------- */}
