@@ -149,7 +149,7 @@ useEffect(() => {
               PG Homes
             </button>
           </div>
-          <div className="search-bar flex flex-row px-2 py-3 w-[350px] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
+          <div className="search-bar flex flex-row px-2 py-3 w-[325px] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
               <img src={pin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
