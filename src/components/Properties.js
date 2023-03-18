@@ -5,6 +5,7 @@ import rightArrow from "../img/rightArrow.png";
 
 
 function Properties() {
+  
   return (
     <>
     <div className="flex flex-col items-center justify-center">

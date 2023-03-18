@@ -1,4 +1,11 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import axios from 'axios';
+
+import HeroCards from "../components/HeroCards";
+import ServicesCards from "../components/ServicesCards";
+import CollectCards from "../components/CollectCards";
+import Properties from "../components/Properties";
+
 import locationPin from "../img/locationPin.png";
 import playstore from "../img/playstore.svg";
 import appstore from "../img/appstore.svg";
@@ -17,10 +24,7 @@ import property2 from "../img/property2.png";
 import property3 from "../img/property3.png";
 import arrow from "../img/arrow.png";
 import rightArrow from "../img/rightArrow.png";
-import HeroCards from "../components/HeroCards";
-import ServicesCards from "../components/ServicesCards";
-import CollectCards from "../components/CollectCards";
-import Properties from "../components/Properties";
+
 
 
 function Accordion({ number, question, answer }) {
@@ -50,7 +54,40 @@ function Accordion({ number, question, answer }) {
   );
 }
 
+const API_endpoint = `https://api.openweathermap.org/data/2.5/weather?`
+const API_key = `6c15729b5721bd0ca3de1ad6effcc4aa`
+
 function HomePage() {
+
+  const [latitude, setLatitude] = useState('')
+  const [longitude, setLongitude] = useState('')
+  const [locationAccess, setLocationAccess] = useState(false)
+
+useEffect(() => {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition((position)=>{
+      setLatitude(position.coords.latitude);
+      setLongitude(position.coords.longitude);
+      setLocationAccess(true);}
+    );
+  } else {
+    console.log('Location Access Denied');
+  }
+}, [])
+
+  let finalAPI_endpoint = `${API_endpoint}lat=${latitude}&lon=${longitude}&appid=${API_key}`
+  // console.log(finalAPI_endpoint)
+
+  axios.get(finalAPI_endpoint)
+  .then((response)=>{
+    // let res=response.data
+    // console.log(res)
+    let city=response.data.name
+    let country=response.data.sys.country
+    console.log("city:"+city,","+country)
+  })
+  
+
   const [pgClick, setpgClick] = useState(false);
   const [flatClick, setflatClick] = useState(true);
   const handlePgClick = () => {
@@ -111,7 +148,7 @@ function HomePage() {
               PG Homes
             </button>
           </div>
-          <div className="search-bar flex flex-row px-2 py-3 w-72 mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
+          <div className="search-bar flex flex-row px-2 py-3 w-[90%] mt-1 rounded backdrop-blur-sm bg-gray-50 shadow-lg bg-opacity-20">
             <span>
               <img src={locationPin} className="pt-1 pl-2 " alt="locationPic" />
             </span>
@@ -188,7 +225,7 @@ function HomePage() {
       {/* END OF SERVICES SECTION */}
 
       {/* PROPERTIES SECTION */}
-      <Properties />
+      {locationAccess? <Properties />:''}
       {/* END OF PROPERTIES SECTION */}
 
       {/* BOOK SECTION */}
