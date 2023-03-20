@@ -26,7 +26,7 @@ import property3 from "../img/property3.png";
 import arrow from "../img/arrow.png";
 import rightArrow from "../img/rightArrow.png";
 
-
+// temporary changes
 
 function Accordion({ number, question, answer }) {
   const [show, setShow] = useState(false);
