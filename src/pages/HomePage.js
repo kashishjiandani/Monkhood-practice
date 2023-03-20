@@ -8,8 +8,8 @@ import Properties from "../components/Properties";
 
 
 import playstore from "../img/playstore.svg";
-import pin from "../img/pin.png";
-import search from "../img/search.png";
+import pin from "../img/pin.svg";
+import search from "../img/search.svg";
 import appstore from "../img/appstore.svg";
 import profile from "../img/profile.svg";
 import message from "../img/message.svg";
@@ -36,7 +36,7 @@ function Accordion({ number, question, answer }) {
   };
   return (
     <>
-      <div className="h-auto w-80 mx-10 my-3 rounded-xl border border-faqGrey flex flex-col items-center justify-evenly ">
+      <div className="h-auto w-80 mx-10 my-3 rounded-xl border border-faqGrey flex flex-col items-center justify-evenly">
         <div className="flex items-center justify-evenly w-full py-3">
           <p className="text-m text-black">{number}</p>
           <p className="text-m text-black">{question}</p>
@@ -113,14 +113,14 @@ useEffect(() => {
   return (
     <>
       {/* HERO-SECTION */}
-      <div class={`${flatClick ? "flatPic" : "pgPic"} h-56 w-full`}>
-        <div className="nav flex justify-between text-white">
+      <div className={`${flatClick ? "flatPic" : "pgPic"} h-56 w-full`}>
+        <div className="nav flex justify-between text-white ">
           <button className="text-neutral-50 mt-4 ml-6 ">☰</button>
           <button className="text-neutral-50 text-sm font-medium px-2 py-0 mt-4 mr-6 rounded-2xl backdrop-blur-sm bg-gray-300 shadow-lg bg-opacity-20">
             List Property
           </button>
         </div>
-        <div className="inner-div mt-2 flex-col flex justify-center items-center text-center text-white">
+        <div className="inner-div mt-2 flex-col flex justify-center items-center text-center text-white ">
           <div className="text-div mb-5 ">
             <p className="text-lg font-medium">Find your next student home</p>
             <p className="text-base font-normal">
